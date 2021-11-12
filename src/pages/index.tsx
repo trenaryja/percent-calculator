@@ -5,13 +5,22 @@ import PercentChangeFromThisToThat from '../components/PercentChangeFromThisToTh
 import DarkModeSwitch from '../components/DarkModeSwitch'
 import CounterBox from '../components/CounterBox'
 import { useState } from 'react'
+import Header from '../components/Header'
 
 const Index = () => {
 	const [numberOfDecimals, setNumberOfDecimals] = useState(0)
 	const { colorMode } = useColorMode()
 
 	return (
-		<Container py={10} maxW="container.lg" centerContent minH="100vh" justifyContent="space-evenly">
+		<Container
+			textAlign="center"
+			py={10}
+			maxW="container.lg"
+			centerContent
+			minH="100vh"
+			justifyContent="space-evenly"
+		>
+			<Header />
 			<ThisIsWhatPercentOfThat numberOfDecimals={numberOfDecimals} />
 			<PercentChangeFromThisToThat numberOfDecimals={numberOfDecimals} />
 			<WhatIsThisPercentOfThat numberOfDecimals={numberOfDecimals} />
