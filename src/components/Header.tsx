@@ -1,47 +1,29 @@
-import React, { FC } from 'react'
-import { Box, Heading, HeadingProps, theme } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-
-const MotionBox = motion(Box)
-
-const HeaderText: FC<HeadingProps & { grow?: number }> = ({ children, ...props }) => {
-	return (
-		<Heading
-			display="inline"
-			bgGradient={`linear(to-r, ${theme.colors.pink[600]}, ${theme.colors.purple[600]})`}
-			bgClip="text"
-			fontSize={`${3 + (props.grow ?? 0)}rem`}
-			fontWeight="extrabold"
-			{...props}
-		>
-			{children}
-		</Heading>
-	)
-}
+import { CSSProperties } from 'react'
+import { Flex, Heading, theme } from '@chakra-ui/react'
+import { FaPercentage, FaCalculator } from 'react-icons/fa'
+import { useSvgGradient, BubbleFlexProps } from '../theme'
 
 const Header = () => {
+	const [gradient, gradientElement] = useSvgGradient(theme.colors.pink[600], theme.colors.purple[600])
+	const iconStyle: CSSProperties = {
+		fontSize: theme.fontSizes['4xl'],
+		fill: gradient.target,
+		margin: theme.space[2],
+	}
+
 	return (
-		<>
-			<HeaderText mb={2}>Welcome to Percent Calculator</HeaderText>
-			<MotionBox
-				initial={{ scale: 0 }}
-				animate={{ rotate: 360, scale: 1 }}
-				transition={{
-					type: 'spring',
-					stiffness: 250,
-					damping: 25,
-				}}
-				whileHover={{ scale: 1.1 }}
-				borderRadius={theme.fontSizes['4xl']}
-				mb={8}
-				pb={5}
-				px={8}
-				boxShadow={theme.shadows['dark-lg']}
+		<Flex {...BubbleFlexProps} alignItems="center">
+			{gradientElement}
+			<FaPercentage style={iconStyle} />
+			<Heading
+				bgGradient={`linear(to-r, ${gradient.start}, ${gradient.end})`}
+				bgClip="text"
+				fontWeight="extrabold"
 			>
-				<HeaderText>%</HeaderText>
-				<HeaderText grow={1.5}>🖩</HeaderText>
-			</MotionBox>
-		</>
+				Welcome to Percent Calculator
+			</Heading>
+			<FaCalculator style={iconStyle} />
+		</Flex>
 	)
 }
 

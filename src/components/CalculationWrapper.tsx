@@ -1,14 +1,12 @@
-import { Divider, Grid } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
 import { FC } from 'react'
+import theme, { BubbleFlexProps } from '../theme'
 
 const CalculationWrapper: FC = ({ children }) => {
 	return (
-		<>
-			<Grid gridAutoFlow={['row', 'column']} alignItems="center" textAlign="center">
-				{children}
-			</Grid>
-			<Divider display={['block', 'none']} my={10} />
-		</>
+		<Grid {...BubbleFlexProps} gridAutoFlow={['row', 'column']} alignItems="center" textAlign="center">
+			{children}
+		</Grid>
 	)
 }
 

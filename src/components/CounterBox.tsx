@@ -15,7 +15,7 @@ const CounterBox = ({ onChange, ...props }: Props) => {
 	})
 
 	return (
-		<HStack>
+		<HStack justify="center">
 			<Button {...getDecrementButtonProps()}>-</Button>
 			<Input textAlign="center" w={10} p={1} isReadOnly {...getInputProps()} />
 			<Button {...getIncrementButtonProps()}>+</Button>
