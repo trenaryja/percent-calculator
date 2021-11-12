@@ -12,9 +12,9 @@ const Index = () => {
 
 	return (
 		<Container py={10} maxW="container.lg" centerContent minH="100vh" justifyContent="space-evenly">
-			<WhatIsThisPercentOfThat numberOfDecimals={numberOfDecimals} />
 			<ThisIsWhatPercentOfThat numberOfDecimals={numberOfDecimals} />
 			<PercentChangeFromThisToThat numberOfDecimals={numberOfDecimals} />
+			<WhatIsThisPercentOfThat numberOfDecimals={numberOfDecimals} />
 			<VStack>
 				<Text>Number of Decimals</Text>
 				<CounterBox min={0} max={100} value={numberOfDecimals} onChange={setNumberOfDecimals} />

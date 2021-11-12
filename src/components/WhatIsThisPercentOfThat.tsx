@@ -18,7 +18,12 @@ const WhatIsThisPercentOfThat = ({ numberOfDecimals }: Props) => {
 			<Text>% of</Text>
 			<NumberBox value={y} onChange={setY} />
 			<Text>?</Text>
-			<NumberBox isReadOnly pl={[1, 10]} value={isNaN(z) ? undefined : z.toFixed(numberOfDecimals)} />
+			<NumberBox
+				tabIndex={-1}
+				isReadOnly
+				pl={[1, 10]}
+				value={isNaN(z) ? undefined : z.toFixed(numberOfDecimals)}
+			/>
 		</CalculationWrapper>
 	)
 }
