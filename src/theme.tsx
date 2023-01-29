@@ -1,4 +1,4 @@
-import { extendTheme, ThemeConfig, BoxProps } from '@chakra-ui/react'
+import { BoxProps, extendTheme, ThemeConfig } from '@chakra-ui/react'
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 
 const breakpoints = createBreakpoints({
@@ -12,14 +12,25 @@ const config: ThemeConfig = { initialColorMode: 'system', useSystemColorMode: tr
 
 const theme = extendTheme({ config, breakpoints })
 
+const blur = 10
+const shadowSize = 7
+
 export const BubbleFlexProps: BoxProps = {
 	py: 5,
 	px: 5,
 	m: 5,
 	width: [theme.space[60], 'unset'],
-	borderRadius: theme.fontSizes['2xl'],
-	boxShadow: theme.shadows['dark-lg'],
+	borderRadius: 'xl',
+	background: 'linear-gradient(145deg, #171d28, #1c222f)',
+	boxShadow: `${shadowSize}px ${shadowSize}px ${2 * shadowSize + blur}px #161b25, -${shadowSize}px -${shadowSize}px ${
+		2 * shadowSize + blur
+	}px #1e2533`,
 }
+
+// border-radius: 50px;
+// background: #1a202c;
+// box-shadow:  20px 20px 60px #161b25,
+//              -20px -20px 60px #1e2533;
 
 export const useSvgGradient = (color1: string, color2: string) => {
 	const info = {
