@@ -1,10 +1,12 @@
-import { useState } from 'react'
 import { Container } from '@chakra-ui/react'
-import WhatIsThisPercentOfThat from '../components/WhatIsThisPercentOfThat'
-import ThisIsWhatPercentOfThat from '../components/ThisIsWhatPercentOfThat'
-import PercentChangeFromThisToThat from '../components/PercentChangeFromThisToThat'
-import Header from '../components/Header'
-import Settings from '../components/Settings'
+import { useState } from 'react'
+import {
+	Header,
+	PercentChangeFromThisToThat,
+	Settings,
+	ThisIsWhatPercentOfThat,
+	WhatIsThisPercentOfThat,
+} from '../components'
 
 const Index = () => {
 	const [numberOfDecimals, setNumberOfDecimals] = useState(0)

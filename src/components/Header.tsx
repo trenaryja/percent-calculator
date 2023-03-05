@@ -1,9 +1,9 @@
-import { CSSProperties } from 'react'
 import { Flex, Heading, theme } from '@chakra-ui/react'
-import { FaPercentage, FaCalculator } from 'react-icons/fa'
-import { useSvgGradient, BubbleFlexProps } from '../theme'
+import { CSSProperties } from 'react'
+import { FaCalculator, FaPercentage } from 'react-icons/fa'
+import { BubbleFlexProps, useSvgGradient } from '../theme'
 
-const Header = () => {
+export const Header = () => {
 	const [gradient, gradientElement] = useSvgGradient(theme.colors.pink[600], theme.colors.purple[600])
 	const iconStyle: CSSProperties = {
 		fontSize: theme.fontSizes['4xl'],
@@ -26,5 +26,3 @@ const Header = () => {
 		</Flex>
 	)
 }
-
-export default Header

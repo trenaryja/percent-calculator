@@ -1,16 +1,8 @@
 import { BoxProps, extendTheme, ThemeConfig } from '@chakra-ui/react'
-import { createBreakpoints } from '@chakra-ui/theme-tools'
-
-const breakpoints = createBreakpoints({
-	sm: '46em',
-	md: '48em',
-	lg: '62em',
-	xl: '80em',
-})
 
 const config: ThemeConfig = { initialColorMode: 'system', useSystemColorMode: true }
 
-const theme = extendTheme({ config, breakpoints })
+const theme = extendTheme({ config })
 
 export const BubbleFlexProps: BoxProps = {
 	py: 5,

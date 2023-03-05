@@ -1,15 +1,13 @@
-import { VStack, Text, useColorMode, Flex } from '@chakra-ui/react'
-import React from 'react'
+import { Flex, Text, useColorMode } from '@chakra-ui/react'
+import { CounterBox, DarkModeSwitch } from '.'
 import { BubbleFlexProps } from '../theme'
-import CounterBox from './CounterBox'
-import DarkModeSwitch from './DarkModeSwitch'
 
-interface Props {
+export type SettingsProps = {
 	numberOfDecimals: number
 	onNumberOfDecimalsChange: (x: number) => void
 }
 
-const Settings = ({ numberOfDecimals, onNumberOfDecimalsChange }: Props) => {
+export const Settings = ({ numberOfDecimals, onNumberOfDecimalsChange }: SettingsProps) => {
 	const { colorMode } = useColorMode()
 
 	return (
@@ -21,5 +19,3 @@ const Settings = ({ numberOfDecimals, onNumberOfDecimalsChange }: Props) => {
 		</Flex>
 	)
 }
-
-export default Settings

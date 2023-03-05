@@ -1,13 +1,12 @@
 import { Text } from '@chakra-ui/react'
 import { useState } from 'react'
-import NumberBox from './NumberBox'
-import CalculationWrapper from './CalculationWrapper'
+import { CalculationWrapper, NumberBox } from '.'
 
-interface Props {
+export type ThisIsWhatPercentOfThatProps = {
 	numberOfDecimals: number
 }
 
-const ThisIsWhatPercentOfThat = ({ numberOfDecimals }: Props) => {
+export const ThisIsWhatPercentOfThat = ({ numberOfDecimals }: ThisIsWhatPercentOfThatProps) => {
 	const [x, setX] = useState<string>()
 	const [y, setY] = useState<string>()
 	const z = (+x / +y) * 100
@@ -28,5 +27,3 @@ const ThisIsWhatPercentOfThat = ({ numberOfDecimals }: Props) => {
 		</CalculationWrapper>
 	)
 }
-
-export default ThisIsWhatPercentOfThat

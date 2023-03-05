@@ -1,10 +1,10 @@
-import { Button, HStack, Input, UseNumberInputProps, useNumberInput } from '@chakra-ui/react'
+import { Button, HStack, Input, useNumberInput, UseNumberInputProps } from '@chakra-ui/react'
 
-interface Props extends Omit<UseNumberInputProps, 'onChange'> {
+export type CouterBoxProps = Omit<UseNumberInputProps, 'onChange'> & {
 	onChange?: (value: number) => void
 }
 
-const CounterBox = ({ onChange, ...props }: Props) => {
+export const CounterBox = ({ onChange, ...props }: CouterBoxProps) => {
 	const handleChange = onChange
 		? (_valueAsString: string, valueAsNumber: number) => onChange(isNaN(valueAsNumber) ? 0 : valueAsNumber)
 		: undefined
@@ -22,5 +22,3 @@ const CounterBox = ({ onChange, ...props }: Props) => {
 		</HStack>
 	)
 }
-
-export default CounterBox
