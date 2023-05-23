@@ -1,25 +1,32 @@
-import { Container } from '@chakra-ui/react'
+import { Divider, Grid } from '@chakra-ui/react'
 import { useState } from 'react'
 import {
-	Header,
-	PercentChangeFromThisToThat,
-	Settings,
-	ThisIsWhatPercentOfThat,
-	WhatIsThisPercentOfThat,
+  Footer,
+  Header,
+  PercentChangeFromThisToThat,
+  Settings,
+  ThisIsWhatPercentOfThat,
+  WhatIsThisPercentOfThat,
 } from '../components'
 
 const Index = () => {
-	const [numberOfDecimals, setNumberOfDecimals] = useState(0)
+  const [numberOfDecimals, setNumberOfDecimals] = useState(0)
 
-	return (
-		<Container py={5} textAlign="center" maxW="container.lg" centerContent minH="100vh">
-			<Header />
-			<ThisIsWhatPercentOfThat numberOfDecimals={numberOfDecimals} />
-			<PercentChangeFromThisToThat numberOfDecimals={numberOfDecimals} />
-			<WhatIsThisPercentOfThat numberOfDecimals={numberOfDecimals} />
-			<Settings numberOfDecimals={numberOfDecimals} onNumberOfDecimalsChange={setNumberOfDecimals} />
-		</Container>
-	)
+  return (
+    <Grid minH="100vh" gridTemplateRows="auto 1fr auto">
+      <Header />
+      <Grid placeItems="center" gap={10} my={10}>
+        <ThisIsWhatPercentOfThat numberOfDecimals={numberOfDecimals} />
+        <Divider />
+        <PercentChangeFromThisToThat numberOfDecimals={numberOfDecimals} />
+        <Divider />
+        <WhatIsThisPercentOfThat numberOfDecimals={numberOfDecimals} />
+        <Divider />
+        <Settings numberOfDecimals={numberOfDecimals} onNumberOfDecimalsChange={setNumberOfDecimals} />
+      </Grid>
+      <Footer />
+    </Grid>
+  )
 }
 
 export default Index

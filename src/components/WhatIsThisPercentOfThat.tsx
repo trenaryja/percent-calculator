@@ -3,26 +3,24 @@ import { useState } from 'react'
 import { CalculationWrapper, NumberBox } from '.'
 
 export type WhatIsThisPercentOfThatProps = {
-	numberOfDecimals: number
+  numberOfDecimals: number
 }
 
 export const WhatIsThisPercentOfThat = ({ numberOfDecimals }: WhatIsThisPercentOfThatProps) => {
-	const [x, setX] = useState<string>()
-	const [y, setY] = useState<string>()
-	const z = (+y * +x) / 100
-	return (
-		<CalculationWrapper>
-			<Text>What is</Text>
-			<NumberBox value={x} onChange={setX} />
-			<Text>% of</Text>
-			<NumberBox value={y} onChange={setY} />
-			<Text>?</Text>
-			<NumberBox
-				tabIndex={-1}
-				isReadOnly
-				pl={[1, 10]}
-				value={isNaN(z) ? undefined : z.toFixed(numberOfDecimals)}
-			/>
-		</CalculationWrapper>
-	)
+  const [x, setX] = useState<string>()
+  const [y, setY] = useState<string>()
+  const z = (+y * +x) / 100
+  return (
+    <CalculationWrapper
+      question={
+        <>
+          <Text>What is</Text>
+          <NumberBox value={x} onChange={setX} isPercent />
+          <Text>of</Text>
+          <NumberBox value={y} onChange={setY} />
+        </>
+      }
+      answer={<NumberBox isReadOnly value={isNaN(z) ? undefined : z.toFixed(numberOfDecimals)} />}
+    />
+  )
 }

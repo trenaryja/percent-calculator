@@ -1,28 +1,22 @@
 import { Flex, Heading, theme } from '@chakra-ui/react'
-import { CSSProperties } from 'react'
 import { FaCalculator, FaPercentage } from 'react-icons/fa'
-import { BubbleFlexProps, useSvgGradient } from '../theme'
+import { useSvgGradient } from '../hooks'
 
 export const Header = () => {
-	const [gradient, gradientElement] = useSvgGradient(theme.colors.pink[600], theme.colors.purple[600])
-	const iconStyle: CSSProperties = {
-		fontSize: theme.fontSizes['4xl'],
-		fill: gradient.target,
-		margin: theme.space[2],
-	}
+  const [gradient, gradientElement] = useSvgGradient(theme.colors.pink[500], theme.colors.purple[400])
 
-	return (
-		<Flex {...BubbleFlexProps} alignItems="center">
-			{gradientElement}
-			<FaPercentage style={iconStyle} />
-			<Heading
-				bgGradient={`linear(to-r, ${gradient.start}, ${gradient.end})`}
-				bgClip="text"
-				fontWeight="extrabold"
-			>
-				Welcome to Percent Calculator
-			</Heading>
-			<FaCalculator style={iconStyle} />
-		</Flex>
-	)
+  return (
+    <Flex bg="rgba(0,0,0, .2)" p={5} placeItems="center" placeContent="center" gap={3} w="100%">
+      {gradientElement}
+      <Heading>
+        <FaCalculator fill={gradient.target} />
+      </Heading>
+      <Heading textAlign="center" bgGradient="linear(to-l, pink.500, purple.400, pink.500)" bgClip="text">
+        Welcome to Percent Calculator
+      </Heading>
+      <Heading>
+        <FaPercentage fill={gradient.target} />
+      </Heading>
+    </Flex>
+  )
 }
