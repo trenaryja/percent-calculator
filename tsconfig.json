@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"allowJs": true,
+		"allowJs": false,
 		"esModuleInterop": true,
 		"incremental": true,
 		"isolatedModules": true,
@@ -9,19 +9,13 @@
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"noEmit": true,
-		"paths": {
-			"@/*": ["./*"]
-		},
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
+		"paths": { "@/*": ["./*"] },
+		"plugins": [{ "name": "next" }],
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
 		"target": "esnext"
 	},
-	"exclude": ["node_modules"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"]
 }
