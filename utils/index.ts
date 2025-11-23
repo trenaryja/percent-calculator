@@ -1,12 +1,8 @@
 import { EquationProps } from '@/components'
-import { ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
 
 export type RemoveIndexSignature<T> = {
 	[K in keyof T as string extends K ? never : K]: T[K]
 }
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 export const equations: Omit<EquationProps, 'numberOfDecimals'>[] = [
 	{

@@ -13,7 +13,7 @@ export default function HomePage() {
 				<Equation key={i} numberOfDecimals={numberOfDecimals} {...cfg} />
 			))}
 
-			<div className='neu neu-gradient neu-lg w-fit grid md:flex gap-3 place-items-center justify-center equation'>
+			<div className='neu w-fit grid md:flex gap-3 place-items-center justify-center equation'>
 				<span>Number of Decimals</span>
 				<div className='flex gap-5 items-center'>
 					<button

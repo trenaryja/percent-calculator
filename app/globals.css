@@ -1,97 +1,9 @@
 @import 'tailwindcss';
+@import '@trenaryja/ui/css';
+@source '../node_modules/@trenaryja/ui';
 
 @plugin "daisyui" {
 	themes: all;
-}
-
-@layer utilities {
-	.neu {
-		--neu-bg: var(--color-base-100);
-		--neu-distance: 5px;
-		--neu-blur: 10px;
-		--neu-intensity: 0.1;
-		--neu-angle: 45deg;
-
-		--neu-x: calc(cos(var(--neu-angle)) * var(--neu-distance));
-		--neu-y: calc(sin(var(--neu-angle)) * var(--neu-distance));
-		--neu-dark: color-mix(
-			in oklch,
-			var(--neu-bg) calc(100% - (abs(var(--neu-intensity)) * 100%)),
-			black calc(abs(var(--neu-intensity)) * 100%)
-		);
-		--neu-light: color-mix(
-			in oklch,
-			var(--neu-bg) calc(100% - (var(--neu-intensity) * 100%)),
-			white calc(var(--neu-intensity) * 100%)
-		);
-
-		background-color: var(--neu-bg);
-		box-shadow:
-			var(--neu-x) var(--neu-y) var(--neu-blur) var(--neu-dark),
-			calc(var(--neu-x) * -1) calc(var(--neu-y) * -1) var(--neu-blur) var(--neu-light);
-	}
-
-	.neu-pressed {
-		box-shadow:
-			inset var(--neu-x) var(--neu-y) var(--neu-blur) var(--neu-dark),
-			inset calc(var(--neu-x) * -1) calc(var(--neu-y) * -1) var(--neu-blur) var(--neu-light);
-	}
-
-	.neu-xs {
-		--neu-distance: 3px;
-		--neu-blur: 6px;
-		--neu-intensity: 0.1;
-	}
-	.neu-sm {
-		--neu-distance: 4px;
-		--neu-blur: 8px;
-		--neu-intensity: 0.1;
-	}
-	.neu-md {
-		--neu-distance: 5px;
-		--neu-blur: 10px;
-		--neu-intensity: 0.1;
-	}
-	.neu-lg {
-		--neu-distance: 10px;
-		--neu-blur: 20px;
-		--neu-intensity: 0.05;
-	}
-	.neu-xl {
-		--neu-distance: 20px;
-		--neu-blur: 40px;
-		--neu-intensity: 0.05;
-	}
-
-	.neu-top-left {
-		--neu-angle: 225deg;
-	}
-	.neu-top-right {
-		--neu-angle: 315deg;
-	}
-	.neu-bottom-left {
-		--neu-angle: 135deg;
-	}
-	.neu-bottom-right {
-		--neu-angle: 45deg;
-	}
-
-	.neu-gradient {
-		background: linear-gradient(
-			calc(var(--neu-angle) - 90deg),
-			color-mix(in oklch, var(--neu-light) 80%, transparent) 0%,
-			var(--neu-bg) 25%,
-			color-mix(in oklch, var(--neu-dark) 80%, transparent) 100%
-		);
-	}
-}
-
-@utility debug {
-	@apply !border !border-red-500;
-}
-
-@utility frosted-glass {
-	@apply backdrop-blur bg-base-100/50;
 }
 
 @utility equation {
@@ -121,5 +33,5 @@ input {
 }
 
 h1 {
-	@apply bg-gradient-to-r from-base-content to-primary text-transparent bg-clip-text;
+	@apply bg-linear-to-r from-base-content to-primary text-transparent bg-clip-text;
 }

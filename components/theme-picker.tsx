@@ -1,7 +1,8 @@
 'use client'
 
-import { cn, RemoveIndexSignature } from '@/utils'
+import { RemoveIndexSignature } from '@/utils'
 import { useMounted } from '@mantine/hooks'
+import { cn } from '@trenaryja/ui'
 import daisyThemes from 'daisyui/theme/object'
 import { useTheme } from 'next-themes'
 import { ComponentProps } from 'react'
@@ -33,7 +34,7 @@ export const ThemePicker = ({ className }: ComponentProps<'div'>) => {
 			</label>
 			<ul
 				tabIndex={0}
-				className='dropdown-content overflow-auto max-h-[50dvh] menu grid p-2 frosted-glass border border-current/25 rounded-box'
+				className='dropdown-content overflow-auto max-h-[50dvh] menu grid p-2 frosted-glass border border-current/25 rounded-box backdrop-blur bg-base-100/50'
 			>
 				{themes.map((x) => (
 					<li key={x.name}>
