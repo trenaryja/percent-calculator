@@ -1,6 +1,5 @@
 'use client'
 
-import { RemoveIndexSignature } from '@/utils'
 import { useMounted } from '@mantine/hooks'
 import { cn } from '@trenaryja/ui'
 import daisyThemes from 'daisyui/theme/object'
@@ -9,13 +8,11 @@ import { ComponentProps } from 'react'
 import { FaPalette } from 'react-icons/fa6'
 import * as R from 'remeda'
 
-export type ThemeName = keyof RemoveIndexSignature<typeof daisyThemes>
-
 export const themes = R.pipe(
 	daisyThemes,
 	R.entries(),
 	R.map(([name, theme]) => ({
-		name: name as ThemeName,
+		name: name,
 		mode: theme['color-scheme'] as 'dark' | 'light',
 	})),
 	R.sortBy(R.prop('mode'), R.prop('name')),
@@ -34,7 +31,9 @@ export const ThemePicker = ({ className }: ComponentProps<'div'>) => {
 			</label>
 			<ul
 				tabIndex={0}
-				className='dropdown-content overflow-auto max-h-[50dvh] menu grid p-2 frosted-glass border border-current/25 rounded-box backdrop-blur bg-base-100/50'
+				className={cn(
+					'dropdown-content overflow-auto max-h-[50dvh] menu flex-nowrap p-2 frosted-glass border border-current/25 rounded-box backdrop-blur bg-base-100/50',
+				)}
 			>
 				{themes.map((x) => (
 					<li key={x.name}>
