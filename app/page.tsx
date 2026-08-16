@@ -9,14 +9,15 @@ export default function HomePage() {
 
 	return (
 		<main className='p-10 gap-20 grid content-around h-full place-items-center'>
-			{equations.map((cfg, i) => (
-				<Equation key={i} numberOfDecimals={numberOfDecimals} {...cfg} />
+			{equations.map((cfg) => (
+				<Equation key={cfg.labels.join(' ')} numberOfDecimals={numberOfDecimals} {...cfg} />
 			))}
 
 			<div className='neu w-fit grid md:flex gap-3 place-items-center justify-center equation'>
 				<span>Number of Decimals</span>
 				<div className='flex gap-5 items-center'>
 					<button
+						type='button'
 						className='btn btn-square'
 						disabled={numberOfDecimals <= 0}
 						onClick={() => setNumberOfDecimals(numberOfDecimals > 0 ? numberOfDecimals - 1 : 0)}
@@ -24,7 +25,7 @@ export default function HomePage() {
 						-
 					</button>
 					<span>{numberOfDecimals}</span>
-					<button className='btn btn-square' onClick={() => setNumberOfDecimals(numberOfDecimals + 1)}>
+					<button type='button' className='btn btn-square' onClick={() => setNumberOfDecimals(numberOfDecimals + 1)}>
 						+
 					</button>
 				</div>

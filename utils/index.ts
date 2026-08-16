@@ -1,4 +1,4 @@
-import { EquationProps } from '@/components'
+import type { EquationProps } from '@/components'
 
 export type RemoveIndexSignature<T> = {
 	[K in keyof T as string extends K ? never : K]: T[K]
